@@ -38,6 +38,12 @@ Route::get('/api-attendances', [App\Http\Controllers\Api\AttendanceController::c
 //update profile
 Route::post('/update-profile', [App\Http\Controllers\Api\AuthController::class, 'updateProfile'])->middleware('auth:sanctum');
 
+//create permission
+Route::apiResource('/api-permissions', App\Http\Controllers\Api\PermissionController::class)->middleware('auth:sanctum');
+
+//notes
+Route::apiResource('/api-notes', App\Http\Controllers\Api\NoteController::class)->middleware('auth:sanctum');
+
 // Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
 
 // Route::post('/login', [AuthController::class,'login']);

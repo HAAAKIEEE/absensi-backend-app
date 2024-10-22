@@ -16,21 +16,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        // User::factory()->create([
-        //     'name' => 'haki Admin',
-        //     'email' => 'haki@pabkode.com',
-        //     'password' =>  bcrypt('12345678'),
-        // ]);
+    
         User::factory()->create([
             'name' => 'haki Admin',
             'email' => 'haki@pabkode.com',
             'password' => Hash::make('12345678'),
         ]);
-
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+        User::factory()->create([
+            'name' => 'haqi Admin',
+            'email' => 'haqi@pabkode.com',
+            'password' =>  bcrypt('12345678'),
+        ]);
         // data dummy for company
         \App\Models\Company::create([
             'name' => 'PT. FIC16',
@@ -43,6 +43,9 @@ class DatabaseSeeder extends Seeder
             'time_out' => '17:00',
         ]);
 
-        $this->call(  AttendanceSeeder::class,);
+        $this->call([
+            AttendanceSeeder::class,
+            PermissionSeeder::class,
+        ]);
     }
 }
